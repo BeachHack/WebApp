@@ -24,8 +24,7 @@ class MySearchBarComponent extends React.Component {
     axios.get(`https://nominatim.openstreetmap.org/search?q=${address}&format=geojson`)
       .then((geoCode) => {
         let position = geoCode.data.features[0].geometry.coordinates;
-        console.log(position);
-        this.props.setLocation({latitude: position[0], longitude: position[1]})
+        this.props.setLocation({latitude: position[1], longitude: position[0]})
       })
       .catch((err) => {
         console.log(err);
