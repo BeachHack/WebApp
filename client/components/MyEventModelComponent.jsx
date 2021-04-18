@@ -5,7 +5,7 @@ import axios from 'axios';
 const MyEventModelComponent = (props) => {
   var [title, setTitle] = useState('');
   var [sport, setSport] = useState('Basketball');
-  var [location, setLocation] = useState('');
+  var [location, setLocation] = useState();
   var [time, setTime] = useState('');
   var [description, setDescription] = useState('')
 

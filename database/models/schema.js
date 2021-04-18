@@ -7,8 +7,7 @@ const eventsSchema = mongoose.Schema({
   location: Object,
   sport: String,
   description: String,
-  attendess: { type: Array, default: [] },
+  attendees: { type: Array, default: [] },
 });
 
 module.exports.Event = mongoose.model('Room', eventsSchema);
-
