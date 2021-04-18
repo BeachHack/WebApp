@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import MySearchBarComponent from './MySearchBarComponent.jsx';
+import axios from 'axios';
 
 const MyEventModelComponent = (props) => {
   var [title, setTitle] = useState('');
@@ -30,6 +31,19 @@ const MyEventModelComponent = (props) => {
     console.log(location);
     console.log(time);
     console.log(description);
+    axios.post('http://localhost:3000/addEvent', {
+      title: title,
+      date: time,
+      location: location,
+      sport: sport,
+      description: description,
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   return(

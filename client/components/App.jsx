@@ -4,6 +4,7 @@ import {API_KEY} from '../../config.js';
 import MyEventModelComponent from "./MyEventModelComponent.jsx";
 
 
+
 const App = ({ id }) => {
 
   var [userLocation, setUserLocation] = useState({latitude: 0, longitude: 0});
