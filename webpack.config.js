@@ -10,7 +10,7 @@ module.exports = {
    module: {
       rules: [
          {
-            test: /\.jsx?$/,
+            test: /\.(js|mjs|jsx|ts|tsx)$/,
             include: [
               path.join(__dirname, 'client'),
             ],
