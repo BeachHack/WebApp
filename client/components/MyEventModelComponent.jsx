@@ -5,7 +5,7 @@ import axios from 'axios';
 const MyEventModelComponent = (props) => {
   var [title, setTitle] = useState('');
   var [sport, setSport] = useState('Basketball');
-  var [location, setLocation] = useState('');
+  var [location, setLocation] = useState();
   var [time, setTime] = useState('');
   var [description, setDescription] = useState('')
 
@@ -18,7 +18,7 @@ const MyEventModelComponent = (props) => {
   const handleLocation = (event) => {
     setLocation(event.target.value);
   }
-  const handleTime= (event) => {
+  const handleTime = (event) => {
     setTime(event.target.value);
   }
   const handleDescription = (event) => {
@@ -50,9 +50,9 @@ const MyEventModelComponent = (props) => {
     <div>
       <div>
         <form onSubmit={handleSubmit}>
-          <label for="title">Title:</label>
+          <label>Title:</label>
           <input type="text" value={title} onChange={handleTitle} ></input>
-          <label for="sport">Sport</label>
+          <label>Sport</label>
           <select name="sport" value={sport} onChange={handleSport}>
               <option>Basketball</option>
               <option>Football</option>

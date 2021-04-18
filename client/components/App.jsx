@@ -2,8 +2,7 @@ import React, {useState, useEffect} from 'react';
 import MyMapComponent from "./MyMapComponent.jsx";
 import {API_KEY} from '../../config.js';
 import MyEventModelComponent from "./MyEventModelComponent.jsx";
-
-
+import axios from 'axios';
 
 const App = ({ id }) => {
 
@@ -12,12 +11,17 @@ const App = ({ id }) => {
   var [createEvent, setCreateEvent] = useState(false);
 
   useEffect(() => {
-
     navigator.geolocation.getCurrentPosition(function(position){
       setUserLocation({latitude: position.coords.latitude, longitude: position.coords.longitude})
       setAccessLocation(true);
+      axios.get('http://localhost:3000/getEvents')
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
     })
-
   }, []);
 
   return(
@@ -31,7 +35,7 @@ const App = ({ id }) => {
           accessLocation?
           <MyMapComponent
             isMarkerShown
-            googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${API_KEY}&callback=initMap`}
+            googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=geometry,drawing,places`}
             loadingElement={<div style={{ height: `100%` }} />}
             containerElement={<div style={{ height: `400px` }} />}
             mapElement={<div style={{ height: `100%` }} />}
