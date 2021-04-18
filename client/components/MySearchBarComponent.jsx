@@ -16,6 +16,7 @@ class MySearchBarComponent extends React.Component {
 
   handleChange(address) {
     this.setState({ address });
+    this.props.setLocation(address);
   };
 
   handleSelect(address){
